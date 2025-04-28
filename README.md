@@ -35,5 +35,5 @@ This is a simple **C++ console application** that recommends recipes based on th
 ## Author  
 [**SrijaniDas0107**](https://github.com/SrijaniDas0107)
 
-Created as part of a C++ learning project. Contributions are welcome!  
+Created as part of a C++ learning project.
 
