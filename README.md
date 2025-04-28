@@ -33,10 +33,6 @@ This is a simple **C++ console application** that recommends recipes based on th
 ---
 
 ## Author  
-Created as part of a C++ learning project. Contributions are welcome!  
 [**SrijaniDas0107**](https://github.com/SrijaniDas0107)
+Created as part of a C++ learning project. Contributions are welcome!  
 
----
-
-## License
-This project is open-source. Feel free to use and modify it!
