@@ -4,6 +4,7 @@
 #include <algorithm>
 using namespace std;
 
+// Ingredient class to store name, quantity, and unit
 class Ingredient {
 public:
     string name;
@@ -13,11 +14,13 @@ public:
     Ingredient(string n = "", double q = 0.0, string u = "") : name(n), qty(q), unit(u) {}
 };
 
+// Converting strings to lowercase for consistent comparison
 string toLower(string str) {
     transform(str.begin(), str.end(), str.begin(), ::tolower);
     return str;
 }
 
+// Recipe class holds details like name, cuisine, ingredients, preparation time, and meal type
 class Recipe {
 protected:
     string name;
@@ -31,22 +34,25 @@ public:
         : name(toLower(n)), cuisine(toLower(c)), ingredients(ing), time_reqd(p), mealType(toLower(m)) {}
 
     string getName() const { return name; }
-    friend class Cookbook;
+    friend class Cookbook; // Allow Cookbook to access private/protected members
 };
 
+// Cookbook class manages a list of recipes and finds matches based on user input
 class Cookbook {
 private:
     vector<Recipe> recipes;
 
 public:
+    // Add a new recipe to the collection
     void addRecipe(const Recipe& recipe) {
         recipes.push_back(recipe);
     }
-
+    // To find and display recipes that match available ingredients, time, and meal type
     void findBestRecipes(vector<Ingredient>& ing_available, int timeAvailable, string type) {
         type = toLower(type);
         bool recipeFound = false;
         for (const auto& recipe : recipes) {
+            // Skip if time or meal type doesn't match
             if (recipe.time_reqd > timeAvailable || recipe.mealType != type)
                 continue;
 
@@ -54,6 +60,7 @@ public:
             for (const auto& req_ing : recipe.ingredients) {
                 bool found = false;
                 for (const auto& avail_ing : ing_available) {
+                    // Checking to see if required ingredient is available in sufficient quantity
                     if (toLower(req_ing.name) == toLower(avail_ing.name) && req_ing.qty <= avail_ing.qty) {
                         found = true;
                         break;
@@ -64,11 +71,13 @@ public:
                     break;
                 }
             }
+            // Displaying matching recipe
             if (canPrepare) {
                 cout << "Recipe: " << recipe.getName() << " | Cuisine: " << recipe.cuisine << " | Time: " << recipe.time_reqd << " mins" << endl;
                 recipeFound = true;
             }
         }
+        // If no recipes matched
         if (!recipeFound)
             cout << "No exact match found. Try adjusting your preferences!" << endl;
     }
@@ -76,6 +85,8 @@ public:
 
 int main() {
     Cookbook myCookbook;
+    
+    // Preloading some recipes
     myCookbook.addRecipe(Recipe("Pasta", "Italian", {{"Pasta", 200, "g"}, {"TomatoSauce", 100, "ml"}}, 30, "Guest"));
     myCookbook.addRecipe(Recipe("Cheese Sandwich", "American", {{"Bread", 4, "slices"}, {"Cheese", 2, "slices"}}, 10, "Basic"));
     myCookbook.addRecipe(Recipe("Green Salad", "International", {{"Lettuce", 100, "g"}, {"Tomato", 2, "pieces"}, {"Cucumber", 1, "pieces"}}, 15, "Basic"));
@@ -85,11 +96,13 @@ int main() {
 
     int choice;
     do {
+        // Menu options
         cout << "\n1. Add a Recipe\n2. Find Recipes\n3. Exit\nChoose an option: ";
         cin >> choice;
         cin.ignore();
 
         if (choice == 1) {
+            // Adding a new recipe
             string name, cuisine, mealType;
             int time_reqd, ing_count;
             vector<Ingredient> ingredients;
@@ -105,6 +118,7 @@ int main() {
             cin >> ing_count;
             cin.ignore();
 
+            // Input ingredients
             for (int i = 0; i < ing_count; i++) {
                 string ing_name, unit;
                 double qty;
@@ -115,6 +129,7 @@ int main() {
             myCookbook.addRecipe(Recipe(name, cuisine, ingredients, time_reqd, mealType));
         }
         else if (choice == 2) {
+            // Finding matching recipes
             int availableCount, timeAvailable;
             vector<Ingredient> ing_available;
             cout << "Enter the number of available ingredients: ";
@@ -138,7 +153,7 @@ int main() {
 
             myCookbook.findBestRecipes(ing_available, timeAvailable, type);
         }
-    } while (choice != 3);
+    } while (choice != 3); // Exit on choice 3
 
     return 0;
 }
