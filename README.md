@@ -1,39 +1,42 @@
-# 🍽 Recipe Recommendation System
+# Recipe Recommendation System
 
-This is a simple **C++ console application** that recommends recipes based on the ingredients you have, the time available, and the type of meal you're looking for (Basic or Guest).
+A simple C++ console application that recommends recipes based on the ingredients you have, the time available, and the type of meal you're preparing (Basic or Guest).
 
 ---
 
 ## 📌 Features
-- Add new recipes with ingredients, cooking time, and meal type
-- Find the best possible recipes from your current ingredients
-- Smart matching logic that checks both availability and quantity
+- ✅ Add new recipes with ingredients, cooking time, and meal type  
+- ✅ Get recipe suggestions based on what you have in your kitchen  
+- ✅ Smart matching that checks both **ingredient name** and **quantity**
 
 ---
 
-##  How to Run
+## How to Run
 
 ### Requirements:
-- A C++ compiler (like GCC)
-- [Code::Blocks IDE](http://www.codeblocks.org/) or any C++ IDE
+- A C++ compiler (e.g., GCC)
+- Code::Blocks IDE or any C++-compatible IDE
 
 ### Steps:
-1. Clone or download the repository
-2. Open main.cpp in Code::Blocks or your IDE
-3. Compile and run the program
-4. Use the menu to add or search recipes
+1. Clone or download the repository  
+2. Open `main.cpp` in your IDE  
+3. Compile and run the program  
+4. Use the menu to add or search for recipes  
 
 ---
 
-## File Structure
-- main.cpp 
-- .cbp file   
-- README.md 
+## 📁 File Structure
+- `main.cpp` – Source code  
+- `.cbp` file – Project file for Code::Blocks  
+- `README.md` – Project description and instructions  
 
 ---
 
-## Author  
-[**SrijaniDas0107**](https://github.com/SrijaniDas0107)
+## 👩‍💻 Author
 
-Created as part of a C++ learning project.
+**Srijani Das**  
+[GitHub](https://github.com/SrijaniDas0107)
+
+*Created as part of a C++ learning project.*
+
 
