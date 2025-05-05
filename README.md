@@ -35,7 +35,7 @@ A simple C++ console application that recommends recipes based on the ingredient
 ## 👩‍💻 Author
 
 **Srijani Das**  
-[GitHub](https://github.com/SrijaniDas0107)
+[GitHub](https://github.com/Srijani-Das07)
 
 *Created as part of a C++ learning project.*
 
